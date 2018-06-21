@@ -51,7 +51,7 @@
     </div>
     
     <div class='js-alter-list'>
-      <button type='button' class='initiate-add-state'>Click to Add Bookmark</button>
+      <button type='button' class='toggle-add-state'>Click to Add Bookmark</button>
       <div class='js-filter-rating'>
         <label for='filter-rating'>Filter by Minimum Rating</label>
         <select name="filter-rating">
@@ -68,29 +68,17 @@
 
     <p>Click on a bookmark to Expand</p>
 
-    <ul class='js-bookmark-list'>
-      <li class='js-bookmark-item' data-bookmark-id='3defer3ffe'>
-        <div class='condense-view'>
-          <h3>${Facebook Homepage}</h3>
-          <div class='display-rating'>
-            <p>Rating: ${4} / 5</p>
-          </div>
-        </div>
-        <div class='detail-view'>
-          <p>Travel to <a href='${url}' target='_blank'>${Facebook Homepage}</a></p>
-          <div class='desc-container'>
-            <p>Description: </p>
-            <p>${desc} blah blah blah blah</p>
-          </div>
-          <button type='button' class='js-delete-bookmark' name='delete-bookmark'>DELETE this bookmark</button>
-        </div>
-      </li>
-    </ul>
+    <content>
+      <ul class='js-bookmark-list'>
+      </ul>
+    </content>
+ 
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src='scripts/store.js'></script>
     <script src='scripts/api.js'></script>
     <script src='scripts/bookmark-list.js'></script>
+    <script src='scripts/event-listeners.js'></script>
     <script src='scripts/index.js'></script>
   </body>
 </html>

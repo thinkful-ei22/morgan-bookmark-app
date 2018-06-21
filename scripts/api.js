@@ -8,12 +8,12 @@ const api = (function(){
 
 
   const defaultAddCallback = function(item){
-    store.bookmarks.push(item);
+    store.addBookmark(item);
     console.log(store.bookmarks);
   };
 
 
-  const addBookmark = function(object, callback=this.defaultAddCallback){
+  const addBookmark = function(object, callback=defaultAddCallback){
     const newItem = JSON.stringify({ 
       'title': object.title,
       'url': object.url,
@@ -68,7 +68,6 @@ const api = (function(){
     addBookmark, 
     getBookmarks, 
     deleteBookmark, 
-    updateBookmark,
-    defaultAddCallback
+    updateBookmark
   };
 }());
