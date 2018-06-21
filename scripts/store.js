@@ -1,4 +1,4 @@
-/* global $, bookmarkList, api, store */
+/* global $, bookmarkList, api, store, eventListeners */
 'use strict';
 
 
@@ -17,15 +17,10 @@ const store = (function() {
   };
 
 
-
+  //finds bookmark by id
+  //reassigns its values to the new Data
   const updateBookmark = function(id, newData) {
-    let tempObj = this.bookmarks.find( index => index.id === id );
-    this.deleteBookmark(id);
-    const keysToUpdate = Object.keys(newData);
-    for(let i = 0; i<keysToUpdate.length; i++){
-      tempObj[keysToUpdate[i]] = newData[keysToUpdate[i]];
-    }
-    this.addBookmark(tempObj);
+    Object.assign(this.bookmarks.find( index => index.id === id ), newData);
   };
 
 

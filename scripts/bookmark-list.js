@@ -1,4 +1,4 @@
-/* global $, bookmarkList, api, store */
+/* global $, bookmarkList, api, store, eventListeners */
 'use strict';
 
 const bookmarkList = (function(){
@@ -13,10 +13,11 @@ const bookmarkList = (function(){
         return `
           <li class='js-bookmark-item' data-bookmark-id='${obj.id}' data-detail-view='${obj.detailView}'>
             <div class='condense-view'>
-              <h3>${obj.title}</h3>
+              <h2 class='toggle-expand-view'>${obj.title}</h2>
               <div class='display-rating'>
                 <p>Rating: ${obj.rating} / 5</p>
               </div>
+              <button type='button' class='condense-button toggle-expand-view'>Condense</button>
             </div>
             <div class='detail-view'>
               <p>Travel to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
@@ -32,10 +33,11 @@ const bookmarkList = (function(){
         return `
           <li class='js-bookmark-item' data-bookmark-id='${obj.id}' data-detail-view='${obj.detailView}'>
             <div class='condense-view'>
-              <h3>${obj.title}</h3>
+              <h2 class='toggle-expand-view'>${obj.title}</h2>
               <div class='display-rating'>
                 <p>Rating: ${obj.rating} / 5</p>
               </div>
+              <button type='button' class='expand-button toggle-expand-view'>Expand</button>
             </div>
           </li>`;
       }
@@ -61,6 +63,15 @@ const bookmarkList = (function(){
   };
 
 
+  //takes in a DOM element
+  //finds closest <li> and returns the value from data-detail-view
+  const getDetailBoolFromElement = function(listItem) {
+    return $(listItem).closest('li').data('detail-view');
+  };
+
+
+  //generates html string from store.bookmarks
+  //inserts that string into the <ul> list
   const render = function() {
     const listString = generateFullList(store.bookmarks);
     $('.js-bookmark-list').html(listString);
@@ -71,6 +82,7 @@ const bookmarkList = (function(){
     generateBookmarkHtml, 
     generateFullList, 
     render, 
-    getIdFromElement
+    getIdFromElement,
+    getDetailBoolFromElement
   };
 }());

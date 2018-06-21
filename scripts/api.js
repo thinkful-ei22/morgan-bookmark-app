@@ -1,4 +1,4 @@
-/* global $, bookmarkList, api, store */
+/* global $, bookmarkList, api, store, eventListeners */
 'use strict';
 
 const api = (function(){
@@ -6,14 +6,9 @@ const api = (function(){
 
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/morganhuegel/bookmarks';
 
+  
 
-  const defaultAddCallback = function(item){
-    store.addBookmark(item);
-    console.log(store.bookmarks);
-  };
-
-
-  const addBookmark = function(object, callback=defaultAddCallback){
+  const addBookmark = function(object, callback){
     const newItem = JSON.stringify({ 
       'title': object.title,
       'url': object.url,

@@ -7,6 +7,7 @@ li {
   border: 2px solid black;
   padding: 15px;
   list-style: none;
+  background-color: rgb(255, 220, 220);
 }
 
 ul {
@@ -22,12 +23,14 @@ label {
   margin-top: 15px;
 }
 
-h3 {
+h2 {
   margin: 0;
+  background-color: rgb(255, 180, 180);
 }
 
 .js-add-bookmark-form form {
   display: none;
   border: 2px solid darkgreen;
   padding: 15px;
+  background-color: rgb(220, 255, 220);
 }
