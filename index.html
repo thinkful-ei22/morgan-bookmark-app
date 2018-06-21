@@ -28,7 +28,6 @@
         <div class='add rating'>
           <label for='add-rating' class='add-bookmark-form-label'>Rating (out of 5)</label>
           <select name="add-rating">
-              <option value="No Rating">No Rating</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -63,7 +62,6 @@
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
-          <option value="No Rating">No Rating</option>
         </select>
       </div>
     </div>
@@ -71,7 +69,7 @@
     <p>Click on a bookmark to Expand</p>
 
     <ul class='js-bookmark-list'>
-      <li class='js-bookmark-item'>
+      <li class='js-bookmark-item' data-bookmark-id='3defer3ffe'>
         <div class='condense-view'>
           <h3>${Facebook Homepage}</h3>
           <div class='display-rating'>
@@ -82,18 +80,17 @@
           <p>Travel to <a href='${url}' target='_blank'>${Facebook Homepage}</a></p>
           <div class='desc-container'>
             <p>Description: </p>
-            <p>${desc} blah blah blah</p>
+            <p>${desc} blah blah blah blah</p>
           </div>
           <button type='button' class='js-delete-bookmark' name='delete-bookmark'>DELETE this bookmark</button>
         </div>
       </li>
     </ul>
 
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src='scripts/store.js'></script>
     <script src='scripts/api.js'></script>
+    <script src='scripts/bookmark-list.js'></script>
     <script src='scripts/index.js'></script>
   </body>
 </html>

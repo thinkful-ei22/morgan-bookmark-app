@@ -22,11 +22,12 @@ label {
   margin-top: 15px;
 }
 
-.js-add-bookmark-form {
-  border: 2px solid darkgreen;
-  padding: 15px;
-}
-
 h3 {
   margin: 0;
+}
+
+.js-add-bookmark-form form {
+  display: none;
+  border: 2px solid darkgreen;
+  padding: 15px;
 }
