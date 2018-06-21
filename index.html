@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bookmark App</title>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css">
+  </head>
+
+  <body>
+    <header role='banner'>
+      <h1>The Bookmark Management System</h1>
+    </header>
+
+    <div class='js-add-bookmark-form'>    
+      <form name='add-bookmark'>
+
+        <div class='add title'>
+          <label for='add-title'>*Bookmark Title: </label>
+          <input type='textbox' name='add-title' placeholder='e.g. Facebook Homepage' required>
+        </div>
+
+        <div class='add url'>
+          <label for='add-url' class='add-bookmark-form-label'>*URL: </label>
+          <input type='textbox' name='add-url' placeholder='e.g. https://www.facebook.com' required>
+        </div>
+
+        <div class='add rating'>
+          <label for='add-rating' class='add-bookmark-form-label'>Rating (out of 5)</label>
+          <select name="add-rating">
+              <option value="No Rating">No Rating</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class='add desc'>
+          <label for='add-desc' class='add-bookmark-form-label'>Description (optional): </label>
+          <input type='textbox' name='add-desc' placeholder="e.g. social media site where you can see pictures of your friends' kids">
+        </div>
+
+        <div>
+          <button type='submit'>ADD Bookmark</button>
+          <button type='reset'>Cancel</button>
+        </div>
+
+      </form>
+    </div>
+    
+    <div class='js-alter-list'>
+      <button type='button' class='initiate-add-state'>Click to Add Bookmark</button>
+      <div class='js-filter-rating'>
+        <label for='filter-rating'>Filter by Minimum Rating</label>
+        <select name="filter-rating">
+          <option value="no minimum rating">no minimum rating</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="No Rating">No Rating</option>
+        </select>
+      </div>
+    </div>
+
+    <p>Click on a bookmark to Expand</p>
+
+    <ul class='js-bookmark-list'>
+      <li class='js-bookmark-item'>
+        <div class='condense-view'>
+          <h3>${Facebook Homepage}</h3>
+          <div class='display-rating'>
+            <p>Rating: ${4} / 5</p>
+          </div>
+        </div>
+        <div class='detail-view'>
+          <p>Travel to <a href='${url}' target='_blank'>${Facebook Homepage}</a></p>
+          <div class='desc-container'>
+            <p>Description: </p>
+            <p>${desc} blah blah blah</p>
+          </div>
+          <button type='button' class='js-delete-bookmark' name='delete-bookmark'>DELETE this bookmark</button>
+        </div>
+      </li>
+    </ul>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src='scripts/store.js'></script>
+    <script src='scripts/api.js'></script>
+    <script src='scripts/index.js'></script>
+  </body>
+</html>

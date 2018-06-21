@@ -1,0 +1,32 @@
+body {
+  padding: 20px;
+}
+
+li {
+  margin: 0 0 10px 0;
+  border: 2px solid black;
+  padding: 15px;
+  list-style: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+label {
+  display: block;
+}
+
+.add-bookmark-form-label, form button, .js-alter-list button, .js-filter-rating {
+  margin-top: 15px;
+}
+
+.js-add-bookmark-form {
+  border: 2px solid darkgreen;
+  padding: 15px;
+}
+
+h3 {
+  margin: 0;
+}
