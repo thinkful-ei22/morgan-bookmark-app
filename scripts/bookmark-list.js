@@ -20,10 +20,10 @@ const bookmarkList = (function(){
               <button type='button' class='condense-button toggle-expand-view'>Condense</button>
             </div>
             <div class='detail-view'>
-              <p>Travel to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
+              <p>Go to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
               <div class='desc-container'>
-                <p>Description: </p>
-                <p>${obj.desc}</p>
+                <p>Description:</p>
+                <p class='display-description'>${obj.desc}</p>
               </div>
               <button type='button' class='js-delete-bookmark' name='delete-bookmark'>DELETE this bookmark</button>
             </div>
@@ -75,6 +75,13 @@ const bookmarkList = (function(){
   const render = function() {
     const listString = generateFullList(store.bookmarks);
     $('.js-bookmark-list').html(listString);
+    if (store.showAddForm) {
+      $('.js-add-bookmark-form form').show();
+      $('.toggle-add-state').hide();
+    } else {
+      $('.js-add-bookmark-form form').hide();
+      $('.toggle-add-state').show();
+    }
   };
 
 

@@ -23,9 +23,18 @@ label {
   margin-top: 15px;
 }
 
-h2 {
+h2, .desc-container {
   margin: 0;
   background-color: rgb(255, 180, 180);
+}
+
+.desc-container p {
+  text-decoration: underline; 
+}
+
+.desc-container .display-description {
+  text-decoration: none;
+  font-style: italic;
 }
 
 .js-add-bookmark-form form {

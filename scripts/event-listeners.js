@@ -4,24 +4,23 @@
 
 const eventListeners = (function(){
 
-  const revealAddForm = function() {
+  const handleRevealAddForm = function() {
     $('.js-alter-list').on('click', '.toggle-add-state', () => {
-      $('.js-add-bookmark-form form').show();
-      $('.toggle-add-state').hide();
+      store.showAddForm = true;
+      bookmarkList.render();
     });
   };
 
 
-  const hideAddForm = function() {
+  const handleHideAddForm = function() {
     $('.js-add-bookmark-form').on('click', 'button[type=reset]', () => {
-      console.log('cancel button clicked');
-      $('.js-add-bookmark-form form').hide();
-      $('.toggle-add-state').show();
+      store.showAddForm = false;
+      bookmarkList.render();
     });
   };
 
 
-  const toggleExpandView = function() {
+  const handleToggleExpandView = function() {
     $('ul').on('click', '.toggle-expand-view', event => {
       const expandedBool = bookmarkList.getDetailBoolFromElement(event.currentTarget);
       if(expandedBool === false){
@@ -37,10 +36,61 @@ const eventListeners = (function(){
   };
 
 
+  //imbed newTitle into newObject, etc. to refactor
+  const handleNewBookmarkSumbit = function(){
+    $('.js-add-bookmark-form').submit(event => {
+      event.preventDefault();
+      const newTitle = $('.js-add-title').val();
+      const newUrl = $('.js-add-url').val();
+      let newDesc = $('.js-add-desc').val();
+      if(newDesc === '') {
+        newDesc = 'n/a';
+      }
+      const newRating = parseInt($('.js-add-rating').val());
+      const newObject = {
+        title: newTitle,
+        url: newUrl,
+        desc: newDesc,
+        rating: newRating
+      };
+      api.addBookmark(newObject, response => {
+        console.log('success! New object in the server');
+        response.detailView = false;
+        store.addBookmark(response);
+        bookmarkList.render();
+      });
+    });
+  };
+
+
+  const handleBookmarkDelete = function(){
+    $('ul').on('click', '.js-delete-bookmark', event => {
+      const id = bookmarkList.getIdFromElement(event.currentTarget);
+      api.deleteBookmark(id, () => {
+        console.log('deleted from server');
+        store.deleteBookmark(id);
+        bookmarkList.render();
+      });
+    });
+  };
+
+
+  const handleFilterByRating = function(){
+    $('.js-filter-rating').change( () => {
+      const pulledValue = $('#js-filter-rating').val();
+      store.minRating = parseInt(pulledValue);
+      bookmarkList.render();
+    });
+  };
+
+
   const main = function() {
-    toggleExpandView();
-    revealAddForm();
-    hideAddForm();
+    handleToggleExpandView();
+    handleRevealAddForm();
+    handleHideAddForm();
+    handleNewBookmarkSumbit();
+    handleBookmarkDelete();
+    handleFilterByRating();
   };
 
 

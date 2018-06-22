@@ -27,6 +27,7 @@ const store = (function() {
 
   return {
     minRating: 0,
+    showAddForm: false,
     bookmarks, 
     addBookmark,
     updateBookmark,

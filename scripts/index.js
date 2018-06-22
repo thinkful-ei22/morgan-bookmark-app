@@ -28,9 +28,7 @@ api.getBookmarks ( response => {
   bookmarkList.render();
 });
 
-console.log(store.bookmarks);
 $(eventListeners.main);
-
 
 
 // store.bookmarks = dummyData;

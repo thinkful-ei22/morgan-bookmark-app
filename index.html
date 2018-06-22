@@ -13,22 +13,21 @@
     </header>
 
     <div class='js-add-bookmark-form'>    
-      <form name='add-bookmark'>
+      <form name='add-bookmark' id='add-bookmark'>
 
         <div class='add title'>
           <label for='add-title'>*Bookmark Title: </label>
-          <input type='textbox' name='add-title' placeholder='e.g. Facebook Homepage' required>
+          <input type='textbox' class='js-add-title' name='add-title' placeholder='e.g. Facebook Homepage' required>
         </div>
 
         <div class='add url'>
           <label for='add-url' class='add-bookmark-form-label'>*URL: </label>
-          <input type='textbox' name='add-url' placeholder='e.g. https://www.facebook.com' required>
+          <input type='url' class='js-add-url' name='add-url' placeholder='e.g. https://www.facebook.com' required>
         </div>
 
-        <div class='add rating'>
+        <div class='add rating' form='add-bookmark'>
           <label for='add-rating' class='add-bookmark-form-label'>Rating (out of 5)</label>
-          <select name="add-rating">
-              <option value="0">0</option>
+          <select name="add-rating" class='js-add-rating'>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -39,7 +38,7 @@
 
         <div class='add desc'>
           <label for='add-desc' class='add-bookmark-form-label'>Description (optional): </label>
-          <input type='textbox' name='add-desc' placeholder="e.g. social media site where you can see pictures of your friends' kids">
+          <input type='textbox' class='js-add-desc' name='add-desc' placeholder="e.g. social media site where you can see pictures of your friends' kids">
         </div>
 
         <div>
@@ -54,8 +53,8 @@
       <button type='button' class='toggle-add-state'>Click to Add Bookmark</button>
       <div class='js-filter-rating'>
         <label for='filter-rating'>Filter by Minimum Rating</label>
-        <select name="filter-rating">
-          <option value="0">0</option>
+        <select name="filter-rating" id="js-filter-rating">
+          <option value="0">Show All</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
