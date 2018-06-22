@@ -69,6 +69,11 @@ const bookmarkList = (function(){
     return $(listItem).closest('li').data('detail-view');
   };
 
+  const displayErrorToaster = function(message) {
+    $('.js-error-message').text(message);
+    $('.error-toaster').show().delay('3000').fadeOut('slow');
+  };
+
 
   //generates html string from store.bookmarks
   //inserts that string into the <ul> list
@@ -99,6 +104,7 @@ const bookmarkList = (function(){
     render, 
     getIdFromElement,
     getDetailBoolFromElement,
-    resetForm
+    resetForm,
+    displayErrorToaster
   };
 }());

@@ -63,6 +63,21 @@ h2, .desc-container {
   background-color: rgb(220, 255, 220);
 }
 
+.error-toaster {
+  display: none;
+  background-color: rgb(230, 230, 255);
+  box-sizing: border-box;
+  border: 2px solid rgb(150, 150, 255);
+  border-radius: 5%;
+  border-top-width: 11px;
+  text-align: center;
+  width: 200px;
+  position: absolute;
+  top: 68px;
+  right: 40px;
+  z-index: 1;
+}
+
 button[type=submit], button.toggle-add-state {
   background-color: darkgreen;
   color: white;

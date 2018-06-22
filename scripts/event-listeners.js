@@ -36,6 +36,29 @@ const eventListeners = (function(){
   };
 
 
+  const handleBadTitle = function() {
+    $('.js-add-bookmark-form').on('blur', '.js-add-title', () => {
+      if ($('.js-add-title').val() === '') {
+        const errMessage = 'ERROR: Title must be at least 1 character long.';
+        bookmarkList.displayErrorToaster(errMessage);
+      }
+    });
+  };
+
+
+  const handleBadUrl = function() {
+    $('.js-add-bookmark-form').on('blur', '.js-add-url', () => {
+      if ($('.js-add-url').val() === '') {
+        const errMessage = 'ERROR: Bookmark must contain a valid URL.';
+        bookmarkList.displayErrorToaster(errMessage);
+      } else if ($('.js-add-url').val().startsWith('http') === false) {
+        const errMessage = 'ERROR: URL must begin with http:// or https://';
+        bookmarkList.displayErrorToaster(errMessage);
+      }
+    });
+  };
+
+
   //imbed newTitle into newObject, etc. to refactor
   const handleNewBookmarkSumbit = function(){
     $('.js-add-bookmark-form').submit(event => {
@@ -93,6 +116,8 @@ const eventListeners = (function(){
     handleNewBookmarkSumbit();
     handleBookmarkDelete();
     handleFilterByRating();
+    handleBadTitle();
+    handleBadUrl();
   };
 
 

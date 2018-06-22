@@ -8,7 +8,7 @@ const api = (function(){
 
   
 
-  const addBookmark = function(object, callback){
+  const addBookmark = function(object, callbackSuccess){
     const newItem = JSON.stringify({ 
       'title': object.title,
       'url': object.url,
@@ -21,7 +21,8 @@ const api = (function(){
       method: 'POST',
       contentType: 'application/json',
       data: newItem,
-      success: callback
+      success: callbackSuccess,
+      error: err => console.log(err)
     });
   };
 
@@ -58,11 +59,24 @@ const api = (function(){
     });
   };
 
+  const testTitleAndUrl = function(newObj){
+    if(newObj.title === '') {
+      const errMessage = 'Title is required. It must be at least 1 character in length.';
+      console.log(errMessage);
+    } else if (newObj.url === '') {
+      const errMessage = 'URL is required. It must begin with http://  ';
+      console.log(errMessage);
+    } else {
+      return true;
+    }
+  };
+
 
   return {
     addBookmark, 
     getBookmarks, 
     deleteBookmark, 
-    updateBookmark
+    updateBookmark,
+    testTitleAndUrl
   };
 }());
