@@ -18,14 +18,15 @@ time, mark, audio, video {
 
 body {
   padding: 20px;
+  background-color: rgb(220, 220, 220);
 }
 
 li {
   margin: 0 0 10px 0;
-  border: 2px solid black;
+  border: 2px solid rgb(150, 150, 100);
   padding: 15px;
   list-style: none;
-  background-color: rgb(255, 220, 220);
+  background-color: rgb(255, 255, 230);
 }
 
 ul {
@@ -44,7 +45,7 @@ label {
 
 h2, .desc-container {
   margin: 0;
-  background-color: rgb(255, 180, 180);
+  background: linear-gradient(to right, rgb(230, 230, 190), rgb(255, 255, 230), rgb(255, 255, 230));
 }
 
 .desc-container p {
@@ -58,9 +59,9 @@ h2, .desc-container {
 
 .js-add-bookmark-form form {
   display: none;
-  border: 2px solid darkgreen;
+  border: 2px solid rgb(20, 20, 190);
   padding: 15px;
-  background-color: rgb(220, 255, 220);
+  background-color: rgb(240, 240, 255);
 }
 
 .error-toaster {
@@ -79,7 +80,7 @@ h2, .desc-container {
 }
 
 button[type=submit], button.toggle-add-state {
-  background-color: darkgreen;
+  background-color: rgb(20, 20, 190);
   color: white;
 }
 

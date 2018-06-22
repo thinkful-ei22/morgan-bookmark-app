@@ -83,6 +83,8 @@ const eventListeners = (function(){
         store.showAddForm = false;
         bookmarkList.resetForm();
         bookmarkList.render();
+      }, error => {
+        bookmarkList.displayErrorToaster(error.responseJSON.message);
       });
     });
   };

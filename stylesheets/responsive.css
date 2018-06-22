@@ -48,4 +48,11 @@
     margin: 0 auto;
   }
 
+  section.error-toaster {
+    position: relative;
+    top: 60px;
+    left: 777px;
+    right: 0px;
+  }
+
 }

@@ -8,7 +8,7 @@ const api = (function(){
 
   
 
-  const addBookmark = function(object, callbackSuccess){
+  const addBookmark = function(object, callbackSuccess, callbackError){
     const newItem = JSON.stringify({ 
       'title': object.title,
       'url': object.url,
@@ -22,7 +22,7 @@ const api = (function(){
       contentType: 'application/json',
       data: newItem,
       success: callbackSuccess,
-      error: err => console.log(err)
+      error: callbackError
     });
   };
 
