@@ -57,6 +57,8 @@ const eventListeners = (function(){
         console.log('success! New object in the server');
         response.detailView = false;
         store.addBookmark(response);
+        store.showAddForm = false;
+        bookmarkList.resetForm();
         bookmarkList.render();
       });
     });

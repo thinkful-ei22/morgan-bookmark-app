@@ -38,7 +38,7 @@
 
         <div class='add desc'>
           <label for='add-desc' class='add-bookmark-form-label'>Description (optional): </label>
-          <input type='textbox' class='js-add-desc' name='add-desc' placeholder="e.g. social media site where you can see pictures of your friends' kids">
+          <textarea rows="4" class='js-add-desc' name='add-desc' placeholder="e.g. social media site where you can see pictures of your friends' kids"></textarea>
         </div>
 
         <div>
@@ -52,7 +52,7 @@
     <div class='js-alter-list'>
       <button type='button' class='toggle-add-state'>Click to Add Bookmark</button>
       <div class='js-filter-rating'>
-        <label for='filter-rating'>Filter by Minimum Rating</label>
+        <label for='filter-rating'>Filter by Minimum Rating:</label>
         <select name="filter-rating" id="js-filter-rating">
           <option value="0">Show All</option>
           <option value="1">1</option>
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <p>Click on a bookmark to Expand</p>
+    <p class='user-instructions'>Click on a bookmark to Expand</p>
 
     <content>
       <ul class='js-bookmark-list'>

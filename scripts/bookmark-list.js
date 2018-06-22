@@ -17,7 +17,6 @@ const bookmarkList = (function(){
               <div class='display-rating'>
                 <p>Rating: ${obj.rating} / 5</p>
               </div>
-              <button type='button' class='condense-button toggle-expand-view'>Condense</button>
             </div>
             <div class='detail-view'>
               <p>Go to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
@@ -26,6 +25,7 @@ const bookmarkList = (function(){
                 <p class='display-description'>${obj.desc}</p>
               </div>
               <button type='button' class='js-delete-bookmark' name='delete-bookmark'>DELETE this bookmark</button>
+              <button type='button' class='condense-button toggle-expand-view'>Condense</button>
             </div>
           </li>`;
       }
@@ -85,11 +85,20 @@ const bookmarkList = (function(){
   };
 
 
+  const resetForm = function() {
+    $('.js-add-desc').val('');
+    $('.js-add-title').val('');
+    $('.js-add-url').val('');
+    $('.js-add-rating').val('1');
+  };
+
+
   return {
     generateBookmarkHtml, 
     generateFullList, 
     render, 
     getIdFromElement,
-    getDetailBoolFromElement
+    getDetailBoolFromElement,
+    resetForm
   };
 }());
