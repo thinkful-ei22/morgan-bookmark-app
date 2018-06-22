@@ -74,7 +74,8 @@ h2, .desc-container {
   text-align: center;
   width: 200px;
   position: absolute;
-  top: 68px;
+  top: 110px;
+  /*  top: 68px; */
   right: 40px;
   z-index: 1;
 }

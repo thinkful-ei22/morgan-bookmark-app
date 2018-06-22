@@ -40,19 +40,17 @@
     margin-top: 20px;
   }
 
+  section.error-toaster {
+    top: 20px;
+    right: 40px;
+  }
+
 }
 
 @media only screen and (min-width: 1000px) {
   body {
     max-width: 1000px;
     margin: 0 auto;
-  }
-
-  section.error-toaster {
-    position: relative;
-    top: 60px;
-    left: 777px;
-    right: 0px;
   }
 
 }
