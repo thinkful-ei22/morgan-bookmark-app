@@ -79,9 +79,6 @@ button[type=reset] {
   background-color: rgb(100, 100, 100);
 }
 
-div.add {
-  justify-content: center;
-}
 
 input, select {
   border: 1px solid gray;
@@ -99,7 +96,7 @@ h1 {
 .user-instructions {
   font-style: italic;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .desc-container {
