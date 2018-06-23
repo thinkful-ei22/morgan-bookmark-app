@@ -22,6 +22,17 @@ const bookmarkList = (function(){
               <div class='display-rating'>
                 <p>Rating: ${obj.rating} / 5</p>
                 <input type='image' class='edit-button rating' alt='Edit Button for Bookmark Rating' src='edit-button.png'>
+                <form class='edit-box rating' name='edit-rating'>
+                  <label for='edit-rating'>Input new rating:</label>
+                  <select name="edit-rating" class='js-edit-rating'>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <button type='submit' class='submit-new rating'>Submit changes</button>
+                </form>
               </div>
             </div>
             <div class='detail-view'>
@@ -50,6 +61,17 @@ const bookmarkList = (function(){
               <div class='display-rating'>
                 <p>Rating: ${obj.rating} / 5</p>
                 <input type='image' class='edit-button rating' alt='Edit Button for Bookmark Rating' src='edit-button.png'>
+                <form class='edit-box rating' name='edit-rating'>
+                  <label for='edit-rating'>Input new rating:</label>
+                  <select name="edit-rating" class='js-edit-rating'>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <button type='submit' class='submit-new rating'>Submit changes</button>
+                </form>
               </div>
               <button type='button' class='expand-button toggle-expand-view'>Expand</button>
             </div>
@@ -88,6 +110,7 @@ const bookmarkList = (function(){
     $('.error-toaster').show().delay('3000').fadeOut('slow');
   };
 
+
   const checkAddFormShow = function() {
     if (store.showAddForm) {
       $('.js-add-bookmark-form form').show();
@@ -107,6 +130,15 @@ const bookmarkList = (function(){
   };
 
 
+  const checkEditRatingShow = function(itemArr) {
+    if (itemArr.editRating) {
+      $('.edit-box.rating').show();
+    } else {
+      $('.edit-box.rating').hide();
+    }
+  };
+
+
   //generates html string from store.bookmarks
   //inserts that string into the <ul> list
   const render = function() {
@@ -114,6 +146,7 @@ const bookmarkList = (function(){
     $('.js-bookmark-list').html(listString);
     checkAddFormShow();
     store.bookmarks.forEach(bookmark => checkEditTitleShow(bookmark));
+    store.bookmarks.forEach(bookmark => checkEditRatingShow(bookmark));
   };
 
 

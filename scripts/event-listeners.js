@@ -59,7 +59,6 @@ const eventListeners = (function(){
   };
 
 
-  //imbed newTitle into newObject, etc. to refactor
   const handleNewBookmarkSumbit = function(){
     $('.js-add-bookmark-form').submit(event => {
       event.preventDefault();
@@ -138,6 +137,25 @@ const eventListeners = (function(){
   };
 
 
+  const handleEditBookmarkRating = function() {
+    $('ul').on('click', '.edit-button.rating', event => {
+      event.preventDefault();
+      const targetId = bookmarkList.getIdFromElement(event.currentTarget);
+      let targetBookmark = store.bookmarks.find(obj => obj.id === targetId);
+      Object.assign(targetBookmark, {editRating: !targetBookmark.editRating});
+      bookmarkList.render();
+    });  
+    $('ul').on('click', '.submit-new.rating', event => {
+      event.preventDefault();
+      const newRating = parseInt($('.js-edit-rating').val());
+      const targetId = bookmarkList.getIdFromElement(event.currentTarget);
+      store.updateBookmark(targetId, {rating: newRating, editRating: false});
+      api.updateBookmark(targetId, {rating: newRating});
+      bookmarkList.render();
+    });
+  };
+
+
   const main = function() {
     handleToggleExpandView();
     handleRevealAddForm();
@@ -148,6 +166,7 @@ const eventListeners = (function(){
     handleBadTitle();
     handleBadUrl();
     handleEditBookmarkTitle();
+    handleEditBookmarkRating();
   };
 
 
