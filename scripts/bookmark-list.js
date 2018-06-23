@@ -38,11 +38,19 @@ const bookmarkList = (function(){
             <div class='detail-view'>
               <p class='display-link'>Go to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
               <input type='image' class='edit-button url' alt='Edit Button for Bookmark URL' src='edit-button.png'>
+              <form class='edit-box url' name='edit-url'>
+                <input type='text' class='input-new url' placeholder='Type new url here...' required>
+                <button type='submit' class='submit-new url'>Submit changes</button>
+              </form>
               <div class='desc-container'>
                 <p class='description-heading'>Description:</p>
                 <input type='image' class='edit-button desc' alt='Edit Button for Bookmark Description' src='edit-button.png'>
                 <p class='display-description'>${obj.desc}</p>
               </div>
+              <form class='edit-box desc' name='edit-desc'>
+                <textarea class='input-new desc' placeholder='Type new description here...' rows='4'></textarea>
+                <button type='submit' class='submit-new desc'>Submit changes</button>
+              </form>
               <button type='button' class='js-delete-bookmark' name='delete-bookmark'>DELETE this bookmark</button>
               <button type='button' class='condense-button toggle-expand-view'>Condense</button>
             </div>
@@ -121,8 +129,8 @@ const bookmarkList = (function(){
     }
   };
 
-  const checkEditTitleShow = function(itemArr) {
-    if (itemArr.editTitle) {
+  const checkEditTitleShow = function(itemObj) {
+    if (itemObj.editTitle) {
       $('.edit-box.title').show();
     } else {
       $('.edit-box.title').hide();
@@ -130,11 +138,28 @@ const bookmarkList = (function(){
   };
 
 
-  const checkEditRatingShow = function(itemArr) {
-    if (itemArr.editRating) {
+  const checkEditRatingShow = function(itemObj) {
+    if (itemObj.editRating) {
       $('.edit-box.rating').show();
     } else {
       $('.edit-box.rating').hide();
+    }
+  };
+
+
+  const checkEditUrlShow = function(itemObj) {
+    if (itemObj.editUrl) {
+      $('.edit-box.url').show();
+    } else {
+      $('.edit-box.url').hide();
+    }
+  };
+
+  const checkEditDescShow = function(itemObj) {
+    if (itemObj.editDesc) {
+      $('.edit-box.desc').show();
+    } else {
+      $('.edit-box.desc').hide();
     }
   };
 
@@ -147,6 +172,8 @@ const bookmarkList = (function(){
     checkAddFormShow();
     store.bookmarks.forEach(bookmark => checkEditTitleShow(bookmark));
     store.bookmarks.forEach(bookmark => checkEditRatingShow(bookmark));
+    store.bookmarks.forEach(bookmark => checkEditUrlShow(bookmark));
+    store.bookmarks.forEach(bookmark => checkEditDescShow(bookmark));
   };
 
 
