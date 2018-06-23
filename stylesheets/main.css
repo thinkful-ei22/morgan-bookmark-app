@@ -43,7 +43,13 @@ label {
   margin-top: 15px;
 }
 
-h2, .desc-container {
+h2 {
+  margin: 0;
+  background: linear-gradient(to right, rgb(230, 230, 190), rgb(255, 255, 230));
+  display: inline-block;
+}
+
+.desc-container {
   margin: 0;
   background: linear-gradient(to right, rgb(230, 230, 190), rgb(255, 255, 230), rgb(255, 255, 230));
 }
@@ -140,4 +146,24 @@ h1 {
   float: right;
   position: relative;
   bottom: 15px;
+}
+
+.edit-button {
+  height: 16px;
+  border: none;
+  margin-left: 10px;
+  position: relative;
+  top: 2px;
+}
+
+.edit-button.title {
+  height: 25px;
+}
+
+.display-rating p {
+  display: inline-block;
+}
+
+.display-link, .description-heading {
+  display: inline-block;
 }

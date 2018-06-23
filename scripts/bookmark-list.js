@@ -14,14 +14,22 @@ const bookmarkList = (function(){
           <li class='js-bookmark-item' data-bookmark-id='${obj.id}' data-detail-view='${obj.detailView}'>
             <div class='condense-view'>
               <h2 class='toggle-expand-view'>${obj.title}</h2>
+              <input type='image' class='edit-button title' alt='Edit Button for Bookmark Title' src='edit-button.png'>
+              <form class='edit-box title' name='edit-title'>
+                <input type='text' class='input-new title' placeholder='Type new title here...' required>
+                <button type='submit' class='submit-new title'>Submit changes</button>
+              </form>
               <div class='display-rating'>
                 <p>Rating: ${obj.rating} / 5</p>
+                <input type='image' class='edit-button rating' alt='Edit Button for Bookmark Rating' src='edit-button.png'>
               </div>
             </div>
             <div class='detail-view'>
-              <p>Go to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
+              <p class='display-link'>Go to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
+              <input type='image' class='edit-button url' alt='Edit Button for Bookmark URL' src='edit-button.png'>
               <div class='desc-container'>
-                <p>Description:</p>
+                <p class='description-heading'>Description:</p>
+                <input type='image' class='edit-button desc' alt='Edit Button for Bookmark Description' src='edit-button.png'>
                 <p class='display-description'>${obj.desc}</p>
               </div>
               <button type='button' class='js-delete-bookmark' name='delete-bookmark'>DELETE this bookmark</button>
@@ -34,8 +42,14 @@ const bookmarkList = (function(){
           <li class='js-bookmark-item' data-bookmark-id='${obj.id}' data-detail-view='${obj.detailView}'>
             <div class='condense-view'>
               <h2 class='toggle-expand-view'>${obj.title}</h2>
+              <input type='image' class='edit-button title' alt='Edit Button for Bookmark Title' src='edit-button.png'>
+              <form class='edit-box title' name='edit-title'>
+                <input type='text' class='input-new title' placeholder='Type new title here...' required>
+                <button type='submit' class='submit-new title'>Submit changes</button>
+              </form>
               <div class='display-rating'>
                 <p>Rating: ${obj.rating} / 5</p>
+                <input type='image' class='edit-button rating' alt='Edit Button for Bookmark Rating' src='edit-button.png'>
               </div>
               <button type='button' class='expand-button toggle-expand-view'>Expand</button>
             </div>
@@ -74,12 +88,7 @@ const bookmarkList = (function(){
     $('.error-toaster').show().delay('3000').fadeOut('slow');
   };
 
-
-  //generates html string from store.bookmarks
-  //inserts that string into the <ul> list
-  const render = function() {
-    const listString = generateFullList(store.bookmarks);
-    $('.js-bookmark-list').html(listString);
+  const checkAddFormShow = function() {
     if (store.showAddForm) {
       $('.js-add-bookmark-form form').show();
       $('.toggle-add-state').hide();
@@ -87,6 +96,24 @@ const bookmarkList = (function(){
       $('.js-add-bookmark-form form').hide();
       $('.toggle-add-state').show();
     }
+  };
+
+  const checkEditTitleShow = function(itemArr) {
+    if (itemArr.editTitle) {
+      $('.edit-box.title').show();
+    } else {
+      $('.edit-box.title').hide();
+    }
+  };
+
+
+  //generates html string from store.bookmarks
+  //inserts that string into the <ul> list
+  const render = function() {
+    const listString = generateFullList(store.bookmarks);
+    $('.js-bookmark-list').html(listString);
+    checkAddFormShow();
+    store.bookmarks.forEach(bookmark => checkEditTitleShow(bookmark));
   };
 
 

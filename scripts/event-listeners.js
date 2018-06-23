@@ -79,6 +79,10 @@ const eventListeners = (function(){
       api.addBookmark(newObject, response => {
         console.log('success! New object in the server');
         response.detailView = false;
+        response.editTitle = false;
+        response.editRating = false;
+        response.editDesc = false;
+        response.editUrl = false;
         store.addBookmark(response);
         store.showAddForm = false;
         bookmarkList.resetForm();
@@ -110,6 +114,29 @@ const eventListeners = (function(){
     });
   };
 
+  const handleEditBookmarkTitle = function() {
+    $('ul').on('click', '.edit-button.title', event => {
+      event.preventDefault();
+      const targetId = bookmarkList.getIdFromElement(event.currentTarget);
+      let targetBookmark = store.bookmarks.find(obj => obj.id === targetId);
+      Object.assign(targetBookmark, {editTitle: !targetBookmark.editTitle});
+      bookmarkList.render();
+    });
+    $('ul').on('click', '.submit-new.title', event => {
+      const newTitle = $('.input-new.title').val();
+      if (newTitle === '') {
+        bookmarkList.displayErrorToaster('Title must be at least 1 character in length.');
+      } else {
+        event.preventDefault();
+        $('.input-new.title').val('');
+        const targetId = bookmarkList.getIdFromElement(event.currentTarget);
+        store.updateBookmark(targetId, {title: newTitle, editTitle: false});
+        api.updateBookmark(targetId, {title: newTitle});
+        bookmarkList.render();
+      }
+    });
+  };
+
 
   const main = function() {
     handleToggleExpandView();
@@ -120,6 +147,7 @@ const eventListeners = (function(){
     handleFilterByRating();
     handleBadTitle();
     handleBadUrl();
+    handleEditBookmarkTitle();
   };
 
 
