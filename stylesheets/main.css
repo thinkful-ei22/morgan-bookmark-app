@@ -167,3 +167,16 @@ h1 {
 .display-link, .description-heading {
   display: inline-block;
 }
+
+.edit-box {
+  padding: 0 8px 0 8px;
+  display: inline-block;
+}
+
+.submit-new.rating {
+  margin-top: 3px;
+}
+
+label[for=edit-url-button] {
+  display: inline-block;
+}

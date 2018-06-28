@@ -37,7 +37,8 @@ const bookmarkList = (function(){
             </div>
             <div class='detail-view'>
               <p class='display-link'>Go to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
-              <input type='image' class='edit-button url' alt='Edit Button for Bookmark URL' src='edit-button.png'>
+              <input id='edit-url-button' type='image' class='edit-button url' alt='Edit Button for Bookmark URL' src='edit-button.png'>
+              <label for='edit-url-button'>(edit URL)</label>
               <form class='edit-box url' name='edit-url'>
                 <input type='text' class='input-new url' placeholder='Type new url here...' required>
                 <button type='submit' class='submit-new url'>Submit changes</button>
@@ -95,7 +96,7 @@ const bookmarkList = (function(){
   //returns a string of HTML
   const generateFullList = function(itemArr){
     return itemArr.map( bookmark => {
-      return generateBookmarkHtml(bookmark) 
+      return generateBookmarkHtml(bookmark); 
     }).join('');
   };
 
@@ -121,11 +122,13 @@ const bookmarkList = (function(){
 
   const checkAddFormShow = function() {
     if (store.showAddForm) {
-      $('.js-add-bookmark-form form').show();
+      $('.add').fadeIn(800);
+      $('.js-add-bookmark-form form').slideDown();
       $('.toggle-add-state').hide();
     } else {
-      $('.js-add-bookmark-form form').hide();
-      $('.toggle-add-state').show();
+      $('.add').fadeOut();
+      $('.js-add-bookmark-form form').slideUp(600);
+      $('.toggle-add-state').fadeIn(1400);
     }
   };
 

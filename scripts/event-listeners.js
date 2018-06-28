@@ -97,7 +97,6 @@ const eventListeners = (function(){
     $('ul').on('click', '.js-delete-bookmark', event => {
       const id = bookmarkList.getIdFromElement(event.currentTarget);
       api.deleteBookmark(id, () => {
-        console.log('deleted from server');
         store.deleteBookmark(id);
         bookmarkList.render();
       });
@@ -106,8 +105,8 @@ const eventListeners = (function(){
 
 
   const handleFilterByRating = function(){
-    $('.js-filter-rating').change( () => {
-      const pulledValue = $('#js-filter-rating').val();
+    $('#filter-rating').change( () => {
+      const pulledValue = $('#filter-rating').val();
       store.minRating = parseInt(pulledValue);
       bookmarkList.render();
     });
@@ -129,9 +128,12 @@ const eventListeners = (function(){
         event.preventDefault();
         $('.input-new.title').val('');
         const targetId = bookmarkList.getIdFromElement(event.currentTarget);
-        store.updateBookmark(targetId, {title: newTitle, editTitle: false});
-        api.updateBookmark(targetId, {title: newTitle});
-        bookmarkList.render();
+        api.updateBookmark(targetId, {title: newTitle}, () => {
+          store.updateBookmark(targetId, {title: newTitle, editTitle: false});
+          bookmarkList.render();
+        }, error => {
+          bookmarkList.displayErrorToaster(error.responseJSON.message);
+        });
       }
     });
   };
@@ -149,9 +151,10 @@ const eventListeners = (function(){
       event.preventDefault();
       const newRating = parseInt($('.js-edit-rating').val());
       const targetId = bookmarkList.getIdFromElement(event.currentTarget);
-      store.updateBookmark(targetId, {rating: newRating, editRating: false});
-      api.updateBookmark(targetId, {rating: newRating});
-      bookmarkList.render();
+      api.updateBookmark(targetId, {rating: newRating}, () => {
+        store.updateBookmark(targetId, {rating: newRating, editRating: false});
+        bookmarkList.render();
+      }, error => bookmarkList.displayErrorToaster(error.responseJSON.message));
     });
   };
 
@@ -166,22 +169,18 @@ const eventListeners = (function(){
     });
     $('ul').on('click', '.submit-new.url', event => {
       const newUrl = $('.input-new.url').val();
-      console.log(newUrl);
       if (newUrl === '') {
         bookmarkList.displayErrorToaster('Url must be at least 1 character in length.');
-      } else if ( newUrl.startsWith('http') === false ) {
-        event.preventDefault();
-        bookmarkList.displayErrorToaster('Url must begin with http:// or https://...');
-      } else if ( newUrl.length < 5 ) {
-        event.preventDefault();
-        bookmarkList.displayErrorToaster('Url must begin with http:// or https://...');
       } else {
         event.preventDefault();
         $('.input-new.url').val('');
         const targetId = bookmarkList.getIdFromElement(event.currentTarget);
-        store.updateBookmark(targetId, {url: newUrl, editUrl: false});
-        api.updateBookmark(targetId, {url: newUrl});
-        bookmarkList.render();
+        api.updateBookmark(targetId, {url: newUrl}, () => {
+          store.updateBookmark(targetId, {url: newUrl, editUrl: false});
+          bookmarkList.render();
+        }, error => {
+          bookmarkList.displayErrorToaster(error.responseJSON.message);
+        });
       }
     });
   };
@@ -203,9 +202,10 @@ const eventListeners = (function(){
       }
       $('.input-new.desc').val('');
       const targetId = bookmarkList.getIdFromElement(event.currentTarget);
-      store.updateBookmark(targetId, {desc: newDesc, editDesc: false});
-      api.updateBookmark(targetId, {desc: newDesc});
-      bookmarkList.render();
+      api.updateBookmark(targetId, {desc: newDesc}, ()=>{
+        store.updateBookmark(targetId, {desc: newDesc, editDesc: false});
+        bookmarkList.render();
+      }, error => bookmarkList.displayErrorToaster(error.responseJSON.message));
     });
   };
 
