@@ -117,7 +117,9 @@ const eventListeners = (function(){
       event.preventDefault();
       const targetId = bookmarkList.getIdFromElement(event.currentTarget);
       let targetBookmark = store.bookmarks.find(obj => obj.id === targetId);
+      console.log(targetBookmark);
       Object.assign(targetBookmark, {editTitle: !targetBookmark.editTitle});
+      console.log(targetBookmark);
       bookmarkList.render();
     });
     $('ul').on('click', '.submit-new.title', event => {

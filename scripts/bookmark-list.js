@@ -2,7 +2,7 @@
 'use strict';
 
 const bookmarkList = (function(){
-  
+
 
   //takes in single object
   //checks if detailView is true or false
@@ -16,22 +16,13 @@ const bookmarkList = (function(){
               <h2 class='toggle-expand-view'>${obj.title}</h2>
               <input type='image' class='edit-button title' alt='Edit Button for Bookmark Title' src='edit-button.png'>
               <form class='edit-box title' name='edit-title'>
-                <input type='text' class='input-new title' placeholder='Type new title here...' required>
-                <button type='submit' class='submit-new title'>Submit changes</button>
+
               </form>
               <div class='display-rating'>
                 <p>Rating: ${obj.rating} / 5</p>
                 <input type='image' class='edit-button rating' alt='Edit Button for Bookmark Rating' src='edit-button.png'>
                 <form class='edit-box rating' name='edit-rating'>
-                  <label for='edit-rating'>Input new rating:</label>
-                  <select name="edit-rating" class='js-edit-rating'>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                  <button type='submit' class='submit-new rating'>Submit changes</button>
+
                 </form>
               </div>
             </div>
@@ -40,8 +31,7 @@ const bookmarkList = (function(){
               <input id='edit-url-button' type='image' class='edit-button url' alt='Edit Button for Bookmark URL' src='edit-button.png'>
               <label for='edit-url-button'>(edit URL)</label>
               <form class='edit-box url' name='edit-url'>
-                <input type='text' class='input-new url' placeholder='Type new url here...' required>
-                <button type='submit' class='submit-new url'>Submit changes</button>
+
               </form>
               <div class='desc-container'>
                 <p class='description-heading'>Description:</p>
@@ -49,8 +39,7 @@ const bookmarkList = (function(){
                 <p class='display-description'>${obj.desc}</p>
               </div>
               <form class='edit-box desc' name='edit-desc'>
-                <textarea class='input-new desc' placeholder='Type new description here...' rows='4'></textarea>
-                <button type='submit' class='submit-new desc'>Submit changes</button>
+
               </form>
               <button type='button' class='js-delete-bookmark' name='delete-bookmark'>DELETE this bookmark</button>
               <button type='button' class='condense-button toggle-expand-view'>Condense</button>
@@ -64,22 +53,13 @@ const bookmarkList = (function(){
               <h2 class='toggle-expand-view'>${obj.title}</h2>
               <input type='image' class='edit-button title' alt='Edit Button for Bookmark Title' src='edit-button.png'>
               <form class='edit-box title' name='edit-title'>
-                <input type='text' class='input-new title' placeholder='Type new title here...' required>
-                <button type='submit' class='submit-new title'>Submit changes</button>
+
               </form>
               <div class='display-rating'>
                 <p>Rating: ${obj.rating} / 5</p>
                 <input type='image' class='edit-button rating' alt='Edit Button for Bookmark Rating' src='edit-button.png'>
                 <form class='edit-box rating' name='edit-rating'>
-                  <label for='edit-rating'>Input new rating:</label>
-                  <select name="edit-rating" class='js-edit-rating'>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                  <button type='submit' class='submit-new rating'>Submit changes</button>
+
                 </form>
               </div>
               <button type='button' class='expand-button toggle-expand-view'>Expand</button>
@@ -132,37 +112,48 @@ const bookmarkList = (function(){
     }
   };
 
-  const checkEditTitleShow = function(itemObj) {
-    if (itemObj.editTitle) {
-      $('.edit-box.title').show();
-    } else {
-      $('.edit-box.title').hide();
+  const checkEditTitleShow = function(bookmark) {
+    if (bookmark.editTitle) {
+      $(`li[data-bookmark-id="${bookmark.id}"]`).find('.edit-box.title').html(`
+        <input type='text' class='input-new title' placeholder='Type new title here...' required>
+        <button type='submit' class='submit-new title'>Submit changes</button>
+      `);
+    } 
+  };
+
+
+  const checkEditRatingShow = function(bookmark) {
+    if (bookmark.editRating) {
+      $(`li[data-bookmark-id="${bookmark.id}"]`).find('.edit-box.rating').html(`
+        <label for='edit-rating'>Input new rating:</label>
+        <select name="edit-rating" class='js-edit-rating'>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <button type='submit' class='submit-new rating'>Submit changes</button>
+      `);
     }
   };
 
 
-  const checkEditRatingShow = function(itemObj) {
-    if (itemObj.editRating) {
-      $('.edit-box.rating').show();
-    } else {
-      $('.edit-box.rating').hide();
+  const checkEditUrlShow = function(bookmark) {
+    if (bookmark.editUrl) {
+      $(`li[data-bookmark-id="${bookmark.id}"]`).find('.edit-box.url').html(`
+        <input type='url' class='input-new url' placeholder='Type new url here...' required>
+        <button type='submit' class='submit-new url'>Submit changes</button>
+      `);
     }
   };
 
-
-  const checkEditUrlShow = function(itemObj) {
-    if (itemObj.editUrl) {
-      $('.edit-box.url').show();
-    } else {
-      $('.edit-box.url').hide();
-    }
-  };
-
-  const checkEditDescShow = function(itemObj) {
-    if (itemObj.editDesc) {
-      $('.edit-box.desc').show();
-    } else {
-      $('.edit-box.desc').hide();
+  const checkEditDescShow = function(bookmark) {
+    if (bookmark.editDesc) {
+      $(`li[data-bookmark-id="${bookmark.id}"]`).find('.edit-box.desc').html(`
+        <textarea class='input-new desc' placeholder='Type new description here...' rows='4'></textarea>
+        <button type='submit' class='submit-new desc'>Submit changes</button>
+      `);
     }
   };
 
