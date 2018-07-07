@@ -13,34 +13,42 @@ const bookmarkList = (function(){
         return `
           <li class='js-bookmark-item' data-bookmark-id='${obj.id}' data-detail-view='${obj.detailView}'>
             <div class='condense-view'>
-              <h2 class='toggle-expand-view'>${obj.title}</h2>
-              <input type='image' class='edit-button title' alt='Edit Button for Bookmark Title' src='edit-button.png'>
-              <form class='edit-box title' name='edit-title'>
+              <div class='title-row'>
+                <h2 class='toggle-expand-view'>${obj.title}</h2>
+                <input type='image' class='edit-button title' alt='Edit Button for Bookmark Title' src='edit-button.png'>
+                <form class='edit-box title' name='edit-title'>
 
-              </form>
-              <div class='display-rating'>
-                <p>Rating: ${obj.rating} / 5</p>
-                <input type='image' class='edit-button rating' alt='Edit Button for Bookmark Rating' src='edit-button.png'>
+                </form>
+              </div>
+              <div class='rating-row'>
+                <div class='display-rating'>
+                  <p>Rating: ${obj.rating} / 5</p>
+                  <input type='image' class='edit-button rating' alt='Edit Button for Bookmark Rating' src='edit-button.png'>
+                </div>
                 <form class='edit-box rating' name='edit-rating'>
 
                 </form>
               </div>
             </div>
             <div class='detail-view'>
-              <p class='display-link'>Go to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
-              <input id='edit-url-button' type='image' class='edit-button url' alt='Edit Button for Bookmark URL' src='edit-button.png'>
-              <label for='edit-url-button'>(edit URL)</label>
-              <form class='edit-box url' name='edit-url'>
+              <div class='url-row'>
+                <p class='display-link'>Go to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
+                <input id='edit-url-button' type='image' class='edit-button url' alt='Edit Button for Bookmark URL' src='edit-button.png'>
+                <label for='edit-url-button'>(edit URL)</label>
+                <form class='edit-box url' name='edit-url'>
 
-              </form>
-              <div class='desc-container'>
-                <p class='description-heading'>Description:</p>
-                <input type='image' class='edit-button desc' alt='Edit Button for Bookmark Description' src='edit-button.png'>
-                <p class='display-description'>${obj.desc}</p>
+                </form>
               </div>
-              <form class='edit-box desc' name='edit-desc'>
+              <div class='desc-row'>
+                <div class='desc-container'>
+                  <p class='description-heading'>Description:</p>
+                  <input type='image' class='edit-button desc' alt='Edit Button for Bookmark Description' src='edit-button.png'>
+                  <p class='display-description'>${obj.desc}</p>
+                </div>
+                <form class='edit-box desc' name='edit-desc'>
 
-              </form>
+                </form>
+              </div>
               <button type='button' class='js-delete-bookmark' name='delete-bookmark'>DELETE this bookmark</button>
               <button type='button' class='condense-button toggle-expand-view'>Condense</button>
             </div>
@@ -50,14 +58,18 @@ const bookmarkList = (function(){
         return `
           <li class='js-bookmark-item' data-bookmark-id='${obj.id}' data-detail-view='${obj.detailView}'>
             <div class='condense-view'>
-              <h2 class='toggle-expand-view'>${obj.title}</h2>
-              <input type='image' class='edit-button title' alt='Edit Button for Bookmark Title' src='edit-button.png'>
-              <form class='edit-box title' name='edit-title'>
+              <div class='title-row'>
+                <h2 class='toggle-expand-view'>${obj.title}</h2>
+                <input type='image' class='edit-button title' alt='Edit Button for Bookmark Title' src='edit-button.png'>
+                <form class='edit-box title' name='edit-title'>
 
-              </form>
-              <div class='display-rating'>
-                <p>Rating: ${obj.rating} / 5</p>
-                <input type='image' class='edit-button rating' alt='Edit Button for Bookmark Rating' src='edit-button.png'>
+                </form>
+              </div>
+              <div class='rating-row'>
+                <div class='display-rating'>
+                  <p>Rating: ${obj.rating} / 5</p>
+                  <input type='image' class='edit-button rating' alt='Edit Button for Bookmark Rating' src='edit-button.png'>
+                </div>
                 <form class='edit-box rating' name='edit-rating'>
 
                 </form>
@@ -151,7 +163,7 @@ const bookmarkList = (function(){
   const checkEditDescShow = function(bookmark) {
     if (bookmark.editDesc) {
       $(`li[data-bookmark-id="${bookmark.id}"]`).find('.edit-box.desc').html(`
-        <textarea class='input-new desc' placeholder='Type new description here...' rows='4'></textarea>
+        <textarea class='input-new desc' placeholder='Type new description here...' rows='3'></textarea>
         <button type='submit' class='submit-new desc'>Submit changes</button>
       `);
     }
