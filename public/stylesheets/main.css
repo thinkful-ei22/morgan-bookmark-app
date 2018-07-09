@@ -116,10 +116,18 @@ h2 {
   margin: 0;
   background: linear-gradient(to right, rgb(230, 230, 190), rgb(230, 230, 190),rgb(255, 255, 230));
   display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 85%;
 }
 
 .title-row, .rating-row, .url-row {
   margin-bottom:10px;
+}
+
+.title-row, .rating-row, .url-row, .desc-row {
+  text-align: center;
 }
 
 .edit-button.title {
@@ -197,6 +205,10 @@ label[for=edit-url-button] {
   bottom: 6px;
 }
 
+.input-new.desc {
+  border: 1px solid gray;
+}
+
 
 /*//////////// Bookmark Buttons ////////////////////////////////*/
 
@@ -226,8 +238,8 @@ label[for=edit-url-button] {
 
 .edit-box {
   padding: 0 8px 0 8px;
-  display: inline-block;
-  margin-bottom:15px;
+  /*display: inline-block;*/
+  margin: 15px 0 5px 0;
 }
 
 .edit-box button[type='submit'] {
