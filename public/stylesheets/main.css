@@ -126,7 +126,7 @@ h2 {
   margin-bottom:10px;
 }
 
-.title-row, .rating-row, .url-row, .desc-row {
+.title-row, /*.rating-row,*/ .url-row, .desc-row {
   text-align: center;
 }
 
@@ -140,6 +140,11 @@ label[for='edit-rating'] {
   font-size:13px;
   font-style:italic;
   text-align: center;
+}
+
+.edit-box.rating {
+  margin: 0 0 5px 0;
+  display: inline-block;
 }
 
 .rating-row {
