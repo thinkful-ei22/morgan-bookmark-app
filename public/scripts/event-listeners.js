@@ -123,11 +123,11 @@ const eventListeners = (function(){
       bookmarkList.render();
     });
     $('ul').on('click', '.submit-new.title', event => {
+      event.preventDefault();
       const newTitle = $('.input-new.title').val();
       if (newTitle === '') {
         bookmarkList.displayErrorToaster('Title must be at least 1 character in length.');
       } else {
-        event.preventDefault();
         $('.input-new.title').val('');
         const targetId = bookmarkList.getIdFromElement(event.currentTarget);
         api.updateBookmark(targetId, {title: newTitle}, () => {
@@ -170,11 +170,13 @@ const eventListeners = (function(){
       bookmarkList.render();
     });
     $('ul').on('click', '.submit-new.url', event => {
+      event.preventDefault();
       const newUrl = $('.input-new.url').val();
       if (newUrl === '') {
         bookmarkList.displayErrorToaster('Url must be at least 1 character in length.');
+      } else if (!newUrl.toLowerCase().startsWith('http')) {
+        bookmarkList.displayErrorToaster('A valid Url must begin with `http`.');
       } else {
-        event.preventDefault();
         $('.input-new.url').val('');
         const targetId = bookmarkList.getIdFromElement(event.currentTarget);
         api.updateBookmark(targetId, {url: newUrl}, () => {

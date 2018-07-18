@@ -53,6 +53,11 @@ h1 {
   text-align: center;
 }
 
+.bookmark-logo {
+  height: 37px;
+  float: left;
+}
+
 input, select {
   border: 1px solid gray;
 }
@@ -174,6 +179,10 @@ label[for=edit-url-button] {
 }
 
 .display-link, .description-heading {
+  display: inline-block;
+}
+
+.edit-url-container {
   display: inline-block;
 }
 

@@ -1,4 +1,19 @@
+@media only screen and (min-width: 400px) and (max-width: 700px) {
+  .bookmark-logo {
+    height: 74px;
+    float: left;
+  }
+}
+
+
 @media only screen and (min-width: 600px) {
+  /* Appropriately centers HEADER / H1 / logo elements */
+  h1 {
+    padding: 18px 0 19px 0;
+  }
+
+
+
   div.add {
     box-sizing: border-box;
     width: 50%;
@@ -50,6 +65,20 @@
   }
 
 }
+
+
+
+@media only screen and (min-width: 700px) and (max-width: 1000px) {
+  .bookmark-logo {
+    height: 74px;
+    float: none;
+    display: inline-block;
+  }
+  /*h1 {
+    padding: 34px 0 0 0;
+  } */
+}
+
 
 @media only screen and (min-width: 1000px) {
   body {

@@ -33,8 +33,10 @@ const bookmarkList = (function(){
             <div class='detail-view'>
               <div class='url-row'>
                 <p class='display-link'>Go to <a href='${obj.url}' target='_blank'>${obj.title}</a></p>
-                <input id='edit-url-button' type='image' class='edit-button url' alt='Edit Button for Bookmark URL' src='edit-button.png'>
-                <label for='edit-url-button'>(edit URL)</label>
+                <div class='edit-url-container'>
+                  <input id='edit-url-button' type='image' class='edit-button url' alt='Edit Button for Bookmark URL' src='edit-button.png'>
+                  <label for='edit-url-button'>(edit URL)</label>
+                </div>
                 <form class='edit-box url' name='edit-url'>
 
                 </form>
@@ -114,11 +116,11 @@ const bookmarkList = (function(){
 
   const checkAddFormShow = function() {
     if (store.showAddForm) {
-      $('.add').fadeIn(800);
+      $('.add, .form-buttons').fadeIn(800);
       $('.js-add-bookmark-form form').slideDown();
       $('.toggle-add-state').hide();
     } else {
-      $('.add').fadeOut();
+      $('.add, .form-buttons').fadeOut();
       $('.js-add-bookmark-form form').slideUp(600);
       $('.toggle-add-state').fadeIn(1400);
     }
@@ -145,7 +147,7 @@ const bookmarkList = (function(){
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <button type='submit' class='submit-new rating'>Submit changes</button>
+        <button type='submit' class='submit-new rating'>Change</button>
       `);
     }
   };
