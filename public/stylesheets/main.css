@@ -20,6 +20,7 @@ time, mark, audio, video {
 body {
   padding: 20px;
   background-color: rgb(220, 220, 220);
+  font-family: 'Michroma';
 }
 
 li {
@@ -124,7 +125,7 @@ h2 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 85%;
+  max-width: 82%;
 }
 
 .title-row, .rating-row, .url-row {
