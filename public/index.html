@@ -5,35 +5,39 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="The Bookmark Management System - Safely store all of your important links.">
     <title>Bookmark App</title>
-    <link rel="stylesheet" href="stylesheets/main.css" type="text/css">
-    <link rel="stylesheet" href="stylesheets/responsive.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Michroma" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/responsive.css" type="text/css">
   </head>
 
   <body>
     <header role='banner'>
-      <h1>The Bookmark Management System</h1>
+      <div class='header-container'>
+        <img src='./bookmark-logo.png' alt='image of a bookmark' class='bookmark-logo'>
+        <h1>The Bookmark Management System</h1>
+      </div>
     </header>
 
 
     <div class='js-add-bookmark-form'>
       <section class='error-toaster'>
-        <p class='error-message js-error-message'>Dummy Message</p>
+        <p class='error-message js-error-message'></p>
       </section>
       <form name='add-bookmark' id='add-bookmark' action='#'>
 
         <div class='add title'>
           <label for='add-title'>*Bookmark Title: </label>
-          <input type='textbox' class='js-add-title' name='add-title' placeholder='e.g. Facebook Homepage' required>
+          <input type='text' class='js-add-title' name='add-title' id="add-title" placeholder='e.g. Facebook Homepage' required>
         </div>
 
         <div class='add url'>
           <label for='add-url' class='add-bookmark-form-label'>*URL: </label>
-          <input type='url' class='js-add-url' name='add-url' placeholder='e.g. https://www.facebook.com' required>
+          <input id='add-url' type='url' class='js-add-url' name='add-url' placeholder='e.g. https://www.facebook.com' required>
         </div>
 
-        <div class='add rating' form='add-bookmark'>
+        <div class='add rating'>
           <label for='add-rating' class='add-bookmark-form-label'>Rating (out of 5):</label>
-          <select name="add-rating" class='js-add-rating'>
+          <select name="add-rating" id="add-rating" class='js-add-rating'>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -44,7 +48,7 @@
 
         <div class='add desc'>
           <label for='add-desc' class='add-bookmark-form-label'>Description (optional): </label>
-          <textarea rows="4" class='js-add-desc' name='add-desc' placeholder="e.g. social media site where you can see pictures of your friends' kids"></textarea>
+          <textarea id='add-desc' rows="4" class='js-add-desc' name='add-desc' placeholder="e.g. social media site where you can see pictures of your friends' kids"></textarea>
         </div>
 
         <div class='form-buttons'>
@@ -59,7 +63,7 @@
       <button type='button' class='toggle-add-state'>Click to Add Bookmark</button>
       <div class='js-filter-rating'>
         <label for='filter-rating'>Filter by Minimum Rating:</label>
-        <select name="filter-rating" id="js-filter-rating">
+        <select id='filter-rating' name="filter-rating">
           <option value="0">Show All</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -71,13 +75,13 @@
     </div>
 
 
-    <content>
+    <main>
       <p class='user-instructions'>Click on a bookmark to Expand</p>
       <ul class='js-bookmark-list'>
       </ul>
-    </content>
- 
+    </main>
 
+    
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src='scripts/store.js'></script>
     <script src='scripts/api.js'></script>

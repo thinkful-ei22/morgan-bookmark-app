@@ -1,4 +1,31 @@
+@media only screen and (min-width: 400px) {
+  .bookmark-logo {
+    height: 74px;
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 719px){
+  /* Appropriately centers HEADER / H1 / logo elements */
+  h1 {
+    padding: 18px 0 19px 0;
+  }
+}
+
 @media only screen and (min-width: 600px) {
+
+
+  .header-container {
+    max-width: 690px;
+    margin: 0 auto;
+  }
+
+
+  body {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
   div.add {
     box-sizing: border-box;
     width: 50%;
@@ -45,12 +72,24 @@
     right: 40px;
   }
 
+  button[type=submit] {
+    margin: 0;
+  }
+
 }
+
 
 @media only screen and (min-width: 1000px) {
   body {
     max-width: 1000px;
     margin: 0 auto;
+  }
+
+  li {
+    box-sizing: border-box;
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
   }
 
 }

@@ -47,7 +47,7 @@ const api = (function(){
   };
 
 
-  const updateBookmark = function(id, update, callback=function(){console.log('update successful');}){
+  const updateBookmark = function(id, update, successCallback, errorCallback){
     const updatedInfo = JSON.stringify(update);
     
     $.ajax({
@@ -55,7 +55,8 @@ const api = (function(){
       method: 'PATCH',
       data: updatedInfo,
       contentType: 'application/json',
-      success: callback
+      success: successCallback,
+      error: errorCallback
     });
   };
 
