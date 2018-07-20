@@ -1,0 +1,95 @@
+@media only screen and (min-width: 400px) {
+  .bookmark-logo {
+    height: 74px;
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 719px){
+  /* Appropriately centers HEADER / H1 / logo elements */
+  h1 {
+    padding: 18px 0 19px 0;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+
+
+  .header-container {
+    max-width: 690px;
+    margin: 0 auto;
+  }
+
+
+  body {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  div.add {
+    box-sizing: border-box;
+    width: 50%;
+  }
+
+  .js-add-bookmark-form {
+    position: relative;
+  }
+
+  .add.rating {
+    position: absolute;
+    width: 50%;
+    bottom: 76%;
+    left: 50%;
+  }
+
+  .add.desc {
+    position: absolute;
+    width: 50%;
+    bottom: 30%;
+    left: 50%;
+  }
+
+  .form-buttons {
+    margin-top: 45px;
+  }
+
+  .form-buttons button, .js-alter-list button, button.js-delete-bookmark {
+    height: 30px;
+  }
+
+  .js-filter-rating {
+    padding-right: 30px;
+    text-align: center;
+    float: right;
+  }
+
+  content {
+    margin-top: 20px;
+  }
+
+  section.error-toaster {
+    top: 20px;
+    right: 40px;
+  }
+
+  button[type=submit] {
+    margin: 0;
+  }
+
+}
+
+
+@media only screen and (min-width: 1000px) {
+  body {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  li {
+    box-sizing: border-box;
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+}

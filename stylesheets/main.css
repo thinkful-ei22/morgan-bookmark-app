@@ -1,0 +1,275 @@
+/* Reset Browser Styling*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+}
+
+/*//////////// General ////////////////////////////////*/
+body {
+  padding: 20px;
+  background-color: rgb(220, 220, 220);
+  font-family: 'Michroma';
+  font-size: 0.8em;
+}
+
+li {
+  margin: 0 0 10px 0;
+  border: 2px solid rgb(150, 150, 100);
+  padding: 15px;
+  list-style: none;
+  background-color: rgb(255, 255, 230);
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+  margin-top: 0px;
+}
+
+label {
+  display: block;
+}
+
+.add-bookmark-form-label, form button, .js-alter-list button, .js-filter-rating {
+  margin-top: 15px;
+}
+
+button {
+  border-radius: 10%;
+  border: 2px solid gray;
+  font-size: 0.6em;
+}
+
+h1 {
+  text-align: center;
+}
+
+.bookmark-logo {
+  height: 37px;
+  float: left;
+}
+
+input, select {
+  border: 1px solid gray;
+}
+
+.user-instructions {
+  font-style: italic;
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+
+/*//////////// Add Form ////////////////////////////////*/
+
+.js-add-bookmark-form form {
+  display: none;
+  border: 2px solid rgb(20, 20, 190);
+  padding: 15px;
+  background-color: rgb(240, 240, 255);
+}
+
+.error-toaster {
+  display: none;
+  background-color: rgb(230, 230, 255);
+  box-sizing: border-box;
+  border: 2px solid rgb(150, 150, 255);
+  border-radius: 5%;
+  border-top-width: 11px;
+  text-align: center;
+  width: 200px;
+  position: absolute;
+  top: 110px;
+  /*  top: 68px; */
+  right: 40px;
+  z-index: 1;
+}
+
+button[type=submit], button.toggle-add-state {
+  background-color: rgb(20, 20, 190);
+  color: white;
+}
+
+button[type=reset] {
+  color: white;
+  text-shadow: 5px, 2px, black;
+  background-color: rgb(100, 100, 100);
+}
+
+.js-add-title, .js-add-desc, .js-add-url {
+  border: 1px solid gray;
+  width: 95%;
+}
+
+.submit-new.rating {
+  margin-top: 3px;
+}
+
+/*//////////// Display Title Row ////////////////////////////////*/
+
+h2 {
+  margin: 0;
+  background: linear-gradient(to right, rgb(230, 230, 190), rgb(230, 230, 190),rgb(255, 255, 230));
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 82%;
+}
+
+.title-row, .rating-row, .url-row {
+  margin-bottom:10px;
+}
+
+.title-row, /*.rating-row,*/ .url-row, .desc-row {
+  text-align: center;
+}
+
+.edit-button.title {
+  height: 25px;
+}
+
+
+/*//////////// Display Rating Row ////////////////////////////////*/
+label[for='edit-rating'] {
+  font-size:13px;
+  font-style:italic;
+  text-align: center;
+  font-size: 0.5em;
+}
+
+.edit-box.rating {
+  margin: 0 0 5px 0;
+  display: inline-block;
+}
+
+.rating-row {
+  height:40px;
+}
+
+.display-rating {
+  display:inline-block;
+  padding:18px 0 0 0;
+}
+
+.display-rating p {
+  display: inline-block;
+}
+
+.detail-view {
+  margin-top: 5px;
+}
+
+
+/*//////////// Display URL Row ////////////////////////////////*/
+
+label[for=edit-url-button] {
+  display: inline-block;
+  font-size: 0.8em;
+  font-style:italic;
+}
+
+.display-link, .description-heading {
+  display: inline-block;
+}
+
+.edit-url-container {
+  display: inline-block;
+}
+
+
+/*//////////// Display Description Row ////////////////////////////////*/
+.desc-container {
+  margin: 0;
+  background: linear-gradient(to right, rgb(230, 230, 190), rgb(255, 255, 230), rgb(255, 255, 230));
+  padding: 5px;
+  border: 1px solid white;
+  color: rgb(80, 80, 80);
+}
+
+.desc-container p {
+  text-decoration: underline;
+}
+
+.desc-container .display-description {
+  text-decoration: none;
+  font-style: italic;
+}
+
+.edit-box.desc {
+  width: 95%;
+  text-align: center;
+}
+
+.edit-box.desc textarea {
+  width: 60%;
+}
+
+.edit-box.desc button {
+  position: relative;
+  bottom: 6px;
+}
+
+.input-new.desc {
+  border: 1px solid gray;
+}
+
+
+/*//////////// Bookmark Buttons ////////////////////////////////*/
+
+.js-delete-bookmark {
+  background-color: rgb(255, 130, 130);
+  margin-top: 8px;
+}
+
+.condense-button {
+  float: right;
+  margin-top: 8px;
+}
+
+.expand-button {
+  float: right;
+  position: relative;
+  bottom: 15px;
+}
+
+.edit-button {
+  height: 16px;
+  border: none;
+  margin-left: 10px;
+  position: relative;
+  top: 2px;
+}
+
+.edit-box {
+  padding: 0 8px 0 8px;
+  /*display: inline-block;*/
+  margin: 15px 0 5px 0;
+}
+
+.edit-box button[type='submit'] {
+  margin:0;
+}
+
+
+
+
+
+
+
+
+
+
