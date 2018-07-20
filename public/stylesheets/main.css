@@ -21,6 +21,7 @@ body {
   padding: 20px;
   background-color: rgb(220, 220, 220);
   font-family: 'Michroma';
+  font-size: 0.8em;
 }
 
 li {
@@ -48,6 +49,7 @@ label {
 button {
   border-radius: 10%;
   border: 2px solid gray;
+  font-size: 0.6em;
 }
 
 h1 {
@@ -146,6 +148,7 @@ label[for='edit-rating'] {
   font-size:13px;
   font-style:italic;
   text-align: center;
+  font-size: 0.5em;
 }
 
 .edit-box.rating {
@@ -175,7 +178,7 @@ label[for='edit-rating'] {
 
 label[for=edit-url-button] {
   display: inline-block;
-  font-size: 13px;
+  font-size: 0.8em;
   font-style:italic;
 }
 

@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="The Bookmark Management System - Safely store all of your important links.">
     <title>Bookmark App</title>
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Rancho|Michroma" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Michroma" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/main.css" type="text/css">
     <link rel="stylesheet" href="/stylesheets/responsive.css" type="text/css">
   </head>
 
   <body>
     <header role='banner'>
-      <img src='./bookmark-logo.png' alt='image of a bookmark' class='bookmark-logo'>
-      <h1>The Bookmark Management System</h1>
+      <div class='header-container'>
+        <img src='./bookmark-logo.png' alt='image of a bookmark' class='bookmark-logo'>
+        <h1>The Bookmark Management System</h1>
+      </div>
     </header>
 
 
     <div class='js-add-bookmark-form'>
       <section class='error-toaster'>
-        <p class='error-message js-error-message'>Dummy Message</p>
+        <p class='error-message js-error-message'></p>
       </section>
       <form name='add-bookmark' id='add-bookmark' action='#'>
 
@@ -61,7 +63,7 @@
       <button type='button' class='toggle-add-state'>Click to Add Bookmark</button>
       <div class='js-filter-rating'>
         <label for='filter-rating'>Filter by Minimum Rating:</label>
-        <select id='filter-rating' name="filter-rating" class="js-filter-rating">
+        <select id='filter-rating' name="filter-rating">
           <option value="0">Show All</option>
           <option value="1">1</option>
           <option value="2">2</option>
