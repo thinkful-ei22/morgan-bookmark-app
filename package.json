@@ -1,0 +1,27 @@
+{
+  "name": "bookmark-app",
+  "version": "1.0.0",
+  "description": "A web application to keep track of bookmarks and links. Uses a server that does not require login, but is wiped clean each night.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "knex": "^0.15.2",
+    "node": "^10.7.0",
+    "pg": "^7.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkful-ei22/morgan-bookmark-app.git"
+  },
+  "author": "Morgan Huegel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinkful-ei22/morgan-bookmark-app/issues"
+  },
+  "homepage": "https://github.com/thinkful-ei22/morgan-bookmark-app#readme"
+}
